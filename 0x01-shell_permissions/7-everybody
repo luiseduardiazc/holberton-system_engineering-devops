@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod +x header hello
+chmod +x hello
