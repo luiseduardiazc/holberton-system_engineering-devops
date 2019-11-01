@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # This script displays Holberton School and then Hi on a new line
-	
-	if [[ -e "$(pwd)/holbertonschool" ]]; then
+	FILE = "$(pwd)/holbertonschool"
+	if [[ -e  $FILE ]]; then
 	echo "holbertonschool file exists"
+	if [[ $FILE ]]; then
+		echo
+	fi
 	else
 	echo "holbertonschool file does not exist"
 	fi
