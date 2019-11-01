@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+x=10
+until [ "$x" -le 0 ]; do
+	echo "Holberton School"
+	x=$((x - 1)) # increment $x
+done

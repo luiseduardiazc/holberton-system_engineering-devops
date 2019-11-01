@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script is displaying hours and minutes for 12 hours
+hour=0
+while (("$hour" < 12)); do
+	echo "Hour: $hour"
+	minutes=1
+	while (("$minutes" < 60)); do
+		echo "$minutes"
+		minutes=$((minutes + 1)) # increment $minutes
+	done
+	hour=$((hour + 1)) # increment $hour
+done
