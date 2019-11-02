@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This script that displays content of the current directory in In a list format
-list_files="$(ls -1)"
-for file in $list_files; do
+
+for file in *; do
     echo "$file"
 done
