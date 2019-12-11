@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Custom 404 page that contains the string Ceci n'est pas une page
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Holberton School for the win!' >/var/www/html/index.nginx-debian.html
+sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.holbertonschool.com/co permanent;' /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" >/var/www/html/404.html
+sed -i '/server_name _;/a error_page 404 /404.html;\nlocation = /404.html {\nroot /var/www/html;\ninternal;\n}' /etc/nginx/sites-available/default
+nginx -s reload
