@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Display information about domain and sub domain
+print_info() {
+    if [ -n "$1" ] && [ -n "$2" ]; then
+        dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; printf "The subdomain '$2' is a %s record and points to %s\n", $4, $5}'
+    else
+        for sub_domain in www lb-01 web-01 web-02; do
+            dig $sub_domain."$1" | awk '/ANSWER SECTION:/{getline; printf "The subdomain '$sub_domain' is a %s record and points to %s\n", $4, $5}'
+        done
+    fi
+
+}
+print_info "$1" "$2"
